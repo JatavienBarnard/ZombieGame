@@ -3,3 +3,6 @@ canvas {
     height:700px;
     background-color: black;
 }
+p {
+    color: blue;
+}
