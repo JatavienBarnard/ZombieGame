@@ -16,6 +16,30 @@ $(document).ready(function(){
         downPlayer(50);
     });
 
+    // check if a key is pressed
+    $(document).keydown(function(e){
+        // fire on 'a'
+        if (e.keyCode==65)
+        {
+            leftPlayer(50);
+        }
+        // fire on 'd'
+        if (e.keyCode==68)
+        {
+            rightPlayer(50);
+        }
+        // fire on 'w'
+        if (e.keyCode==87)
+        {
+            upPlayer(50);
+        }
+        // fire on 's'
+        if (e.keyCode==83)
+        {
+            downPlayer(50);
+        }
+    });
+
 });
 
 function sleep(ms) {
