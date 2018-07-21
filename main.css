@@ -1,8 +1,5 @@
 svg {
-    width:700px;
-    height:700px;
+    width:1080px;
+    height:720px;
     background-color: wheat;
-}
-#player {
-    transform: translate(150px,150px);
 }

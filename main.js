@@ -1,23 +1,23 @@
 var moveDistance = 50;
 var moveDelay = 10;
-
+var player = $("#player");
 
 $(document).ready(function(){
-    
+
     $("#left").click(function(){
-        leftPlayer(moveDistance);
+        left(player, moveDistance);
     });
 
     $("#up").click(function(){
-        upPlayer(moveDistance);
+        up(player, moveDistance);
     });
 
     $("#right").click(function(){
-        rightPlayer(moveDistance);
+        right(player, moveDistance);
     });
 
     $("#down").click(function(){
-        downPlayer(moveDistance);
+        down(player, moveDistance);
     });
 
     let keysDown = {
@@ -88,131 +88,132 @@ function sleep(ms) {
      // key combinations
      if(keysDown.w && keysDown.d)
      {
-         upRightPlayer(moveDistance);
+         upRight(player, moveDistance);
          return;
      }
      
      if(keysDown.s && keysDown.d)
      {
-         downRightPlayer(moveDistance);
+         downRight(player, moveDistance);
          return;
      }
      
      if(keysDown.s && keysDown.a)
      {
-         downLeftPlayer(moveDistance);
+         downLeft(player, moveDistance);
          return;
      }
      
      if(keysDown.w && keysDown.a)
      {
-         upLeftPlayer(moveDistance);
+         upLeft(player, moveDistance);
          return;
      }
 
      //single keys
      if(keysDown.a)
      {
-         leftPlayer(moveDistance);
+         left(player, moveDistance);
          return;
      }
 
      if(keysDown.d)
      {
-         rightPlayer(moveDistance);
+         right(player, moveDistance);
          return;
      }
 
      if(keysDown.w)
      {
-         upPlayer(moveDistance);
+         up(player, moveDistance);
          return;
      }
 
      if(keysDown.s)
      {
-         downPlayer(moveDistance);
+         down(player, moveDistance);
          return;
      }
 
   }
 
-  async function upRightPlayer(dxy)
+  async function upRight(actor, dxy)
+  {
+      console.log(actor);
+      for(let i = 0; i < dxy; i++)
+      {
+            actor.css("cx", "+=1px");
+            actor.css("cy", "-=1px");
+            await sleep(moveDelay);
+      }
+      
+  }
+  async function downRight(actor, dxy)
   {
       for(let i = 0; i < dxy; i++)
       {
-              $("#player").css("cx", "+=1px");
-              $("#player").css("cy", "-=1px");
+              actor.css("cx", "+=1px");
+              actor.css("cy", "+=1px");
               await sleep(moveDelay);
       }
       
   }
-  async function downRightPlayer(dxy)
+  async function downLeft(actor, dxy)
   {
       for(let i = 0; i < dxy; i++)
       {
-              $("#player").css("cx", "+=1px");
-              $("#player").css("cy", "+=1px");
+              actor.css("cx", "-=1px");
+              actor.css("cy", "+=1px");
               await sleep(moveDelay);
       }
       
   }
-  async function downLeftPlayer(dxy)
+  async function upLeft(actor, dxy)
   {
       for(let i = 0; i < dxy; i++)
       {
-              $("#player").css("cx", "-=1px");
-              $("#player").css("cy", "+=1px");
-              await sleep(moveDelay);
-      }
-      
-  }
-  async function upLeftPlayer(dxy)
-  {
-      for(let i = 0; i < dxy; i++)
-      {
-              $("#player").css("cx", "-=1px");
-              $("#player").css("cy", "-=1px");
+              actor.css("cx", "-=1px");
+              actor.css("cy", "-=1px");
               await sleep(moveDelay);
       }
       
   }
 
-async function leftPlayer(dx)
+async function left(actor, dx)
 {
     for(let i = 0; i < dx; i++)
     {
-            $("#player").css("cx", "-=1px");
+            actor.css("cx", "-=1px");
             await sleep(moveDelay);
     }
     
 }
 
-async function rightPlayer(dx)
+async function right(actor, dx)
 {
     for(let i = 0; i < dx; i++)
     {
-            $("#player").css("cx", "+=1px");
+            actor.css("cx", "+=1px");
             await sleep(moveDelay);
     }
     
 }
 
-async function upPlayer(dy)
+async function up(actor, dy)
 {
     for(let i = 0; i < dy; i++)
     {
-            $("#player").css("cy", "-=1px");
+            actor.css("cy", "-=1px");
             await sleep(moveDelay);
     }
     
 }
 
-async function downPlayer(dy)
+async function down(actor, dy)
 {
     for(let i = 0; i < dy; i++)
     {
-            $("#player").css("cy", "+=1px");
+            (actor).css("cy", "+=1px");
             await sleep(moveDelay);
     }
     
