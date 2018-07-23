@@ -1,8 +1,21 @@
 <!DOCTYPE >
 <html>
-    <link rel="stylesheet" href="main.css">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+    <svg>
+        <circle id="player" cx="150" cy="150" r="25" stroke="black" stroke-width="3" fill="red" />
+        <circle id="zombie" cx="550" cy="550" r="25" stroke="black" stroke-width="3" fill="green" />
+    </svg>
+    <div>
+        <button id="up">Up</button>    
+        <button id="right">Right</button>
+        <button id="down">Down</button>
+        <button id="left">Left</button>    
+    </div>
     <script src="main.js"></script>
-    <canvas name="window" class="main" id="main"></canvas>
-    <p>test</p>
-    random crap
+    <script src="zombie.js"></script>
+    </body>
 </html>

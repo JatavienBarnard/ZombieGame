@@ -1,8 +1,5 @@
-canvas {
-    width:700px;
-    height:700px;
-    background-color: black;
-}
-p {
-    color: blue;
+svg {
+    width:1080px;
+    height:720px;
+    background-color: wheat;
 }
