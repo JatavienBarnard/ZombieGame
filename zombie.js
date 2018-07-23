@@ -1,5 +1,6 @@
 var zombie = $("#zombie");
 var player = $("#player");
+var zombieMoveDistance = 25;
 $(document).ready(function(){
     
   
@@ -16,27 +17,36 @@ $(document).ready(function(){
 
         zombieX = parseInt(zombie.css("cx"),10);
         zombieY = parseInt(zombie.css("cy"),10);
-
+        if (kill(playerX,playerY,zombieX,zombieY)) {
+            player.css ("fill","black");
+        }
         if(playerX > zombieX){
             console.log("playerX: " + playerX +" zombieX: "+zombieX+" decision right");
-            right(zombie, 50);
+            right(zombie, zombieMoveDistance);
             
         }
         else
         {
             console.log("playerX: " + playerX +" zombieX: "+zombieX+" decision left");
-            left(zombie, 50);
+            left(zombie, zombieMoveDistance);
         }
         if(playerY > zombieY){
             console.log("playerY: " + playerY +" zombieY: "+zombieY+" decision down");
-            down(zombie, 50);
+            down(zombie, zombieMoveDistance);
         }
         else
         {
             console.log("playerY: " + playerY +" zombieY: "+zombieY+" decision up");
-            up(zombie, 50);
+            up(zombie, zombieMoveDistance);
         }
     });
+    function kill(px,py,zx,zy) {
+        let distance = Math.pow(Math.pow((px-zx),2) + Math.pow((py-zy),2),0.5);
+        if (distance <= 75) {
+            return true;
+        }
+        return false;
+    }
 
     function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
